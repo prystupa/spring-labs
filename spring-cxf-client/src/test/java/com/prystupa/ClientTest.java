@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple Client.
+ * Unit test for simple ClientCxfSpring.
  */
 public class ClientTest
     extends TestCase

@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Hello world!
  *
  */
-public class Client
+public class ClientCxfSpring
 {
     public static void main( String[] args )
     {
