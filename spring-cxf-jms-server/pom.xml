@@ -10,35 +10,27 @@
     </parent>
 
     <groupId>com.prystupa</groupId>
-    <artifactId>spring-cxf-server</artifactId>
+    <artifactId>spring-cxf-jms-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>spring-cxf Maven Webapp</name>
-
-    <build>
-        <finalName>spring-cxf-server</finalName>
-    </build>
+    <name>spring-cxf-jms-server Maven Webapp</name>
 
     <dependencies>
-        <dependency>
-            <groupId>com.prystupa</groupId>
-            <artifactId>spring-contract</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.prystupa</groupId>
             <artifactId>spring-service</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-bundle</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-core</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <finalName>spring-cxf-jms-server</finalName>
+    </build>
 </project>

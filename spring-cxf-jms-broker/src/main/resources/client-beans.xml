@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd"
+       xmlns:jaxws="http://cxf.apache.org/jaxws">
+
+    <jaxws:client id="orderClient"
+                  serviceClass="com.prystupa.IOrderProcess"
+                  address="jms://">
+        <jaxws:features>
+            <bean class="org.apache.cxf.transport.jms.JMSConfigFeature">
+                <property name="jmsConfig" ref="jmsConfig"/>
+            </bean>
+        </jaxws:features>
+    </jaxws:client>
+    
+    <bean id="jmsConfig"
+            class="org.apache.cxf.transport.jms.JMSConfiguration">
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+        <property name="targetDestination" value="test.cxf.jms.transport.queue"/>
+    </bean>
+
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+</beans>
