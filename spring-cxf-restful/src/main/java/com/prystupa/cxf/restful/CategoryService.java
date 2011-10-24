@@ -14,6 +14,7 @@ public class CategoryService {
 
     @GET
     @Path("/test/{message}")
+    @Produces({ "application/xml", "application/json" })
     public Test getTestMessage(@PathParam("message") String message) {
         Test test = new Test();
         test.setMessage(message);
@@ -28,7 +29,7 @@ public class CategoryService {
     
     @POST
     @Path("/category")
-    @Consumes("application/xml")
+    @Consumes({ "application/xml", "application/json" })
     public void addCategory(Category category) {
          categoryDao.addCategory(category);
     }
@@ -47,18 +48,17 @@ public class CategoryService {
 
     @POST
     @Path("/category/book")
-    @Consumes("application/xml")
+    @Consumes({ "application/xml", "application/json" })
     public void addBooks(Category category) {
         categoryDao.addBooks(category);
     }
     
     @GET
     @Path("/category/{id}/books")
-    @Consumes("application/xml")
+    @Consumes({ "application/xml", "application/json" })
     public Category getBooks(@PathParam("id") String id) {
         Category result = categoryDao.getCategory(id);
         result.setBooks(categoryDao.getBooks(id));
         return result;
     }
-
 }
