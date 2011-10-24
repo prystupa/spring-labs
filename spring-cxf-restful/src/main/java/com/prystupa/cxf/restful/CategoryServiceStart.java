@@ -11,7 +11,6 @@ public class CategoryServiceStart {
 
         JAXRSServerFactoryBean restServer = new JAXRSServerFactoryBean();
         restServer.setServiceBeanObjects(service);
-        restServer.setResourceClasses(Category.class    );
         restServer.setAddress("http://localhost:8080/");
         restServer.create();
     }
